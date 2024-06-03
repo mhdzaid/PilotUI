@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/mountains.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 63%;
+  max-width: 1200px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.controls {
+  margin-right: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.controls h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #333;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #555;
+}
+#script {
+  width: 87%;
+  height: 150px; /* Adjust height as needed */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  resize: vertical; /* Allow vertical resize */
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#script:focus {
+  border-color: #66afe9;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(102, 175, 233, 0.6);
+  outline: none;
+}
+
+/* Custom scrollbar styles */
+#script::-webkit-scrollbar {
+  width: 12px;
+}
+
+#script::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#script::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+#script::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(5, 100px);
+  gap: 5px;
+}
+
+.grid-row {
+  display: contents;
+}
+
+.grid-cell {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  position: relative;
+  border-radius: 10px;
+}
+
+.grid-cell:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.robot {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+.direction-north::after {
+  content: "↑";
+  position: absolute;
+  font-size: 2em;
+}
+
+.direction-south::after {
+  content: "↓";
+  position: absolute;
+  font-size: 2em;
+}
+
+.direction-east::after {
+  content: "→";
+  position: absolute;
+  font-size: 2em;
+}
+
+.direction-west::after {
+  content: "←";
+  position: absolute;
+  font-size: 2em;
+}
+
+/* Compass Styling */
+.compass {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 50px;
+  margin-top: -50px;
+  position: relative;
+  border: 5px solid #777;
+  background: radial-gradient(ellipse cover, white, #A3E2FC);
+  box-shadow: 0 0 4px #000, 0 0 1px 8px #ccc, 5px 10px 15px #48436f;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.compass:before {
+  content: '';
+  border: 2px dashed #444;
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  top: 5px;
+  border-radius: 50%;
+}
+
+.compass:after {
+  content: '';
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  top: -10px;
+  border-radius: 50%;
+  background: linear-gradient(-45deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 47%, rgba(255,255,255,0) 48%, rgba(255,255,255,0) 100%);
+}
+
+.compass span {
+  position: absolute;
+  font-weight: bold;
+}
+
+/* North */
+.compass span:nth-child(1) {
+  left: 45px;
+  top: 10px;
+}
+/* South */
+.compass span:nth-child(3) {
+  left: 45px;
+  bottom: 10px;
+}
+
+/* East */
+.compass span:nth-child(2) {
+  right: 15px;
+  top: 40px;
+}
+/* West */
+.compass span:nth-child(4) {
+  left: 15px;
+  top: 40px;
+}
+
+.pointer {
+  width: 20px;
+  height: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -10px;
+  margin-top: -5px;
+}
+
+.pointer:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(-63deg, rgba(79,188,242,1) 1%, rgba(26,110,206,1) 50%, rgba(216,216,216,1) 51%, rgba(244,94,80,1) 53%, rgba(255,45,45,1) 100%);
+  transform: skewX(60deg);
+}
+
+.pointer:after {
+  content: '';
+  width: 2px;
+  height: 2px;
+  background: #4781c0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 4px 2px #4d4d4d, 0 0 5px 1px white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+.pointer-east {
+  transform: rotate(167deg);
+}
+
+.pointer-north {
+  transform: rotate(72deg);
+}
+
+.pointer-south {
+  transform: rotate(255deg);
+}
+
+.pointer-west {
+  transform: rotate(345deg);
+}

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="controls">
+    <h1>Robot Control</h1>
+    <form (ngSubmit)="submitScript()">
+      <div class="form-group">
+        <label for="script">Script</label>
+        <textarea id="script" [(ngModel)]="script" name="script" class="form-control" rows="7"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <div class="grid-container">
+    <div class="compass">
+      <span>N</span>
+      <span>E</span>
+      <span>S</span>
+      <span>W</span>
+      <div class="pointer"
+           [ngClass]="{
+             'pointer-north': robot.direction === 'NORTH',
+             'pointer-east': robot.direction === 'EAST',
+             'pointer-south': robot.direction === 'SOUTH',
+             'pointer-west': robot.direction === 'WEST'
+           }"></div>
+    </div>
+
+    <div class="grid">
+      <div *ngFor="let row of grid; let rowIndex = index" class="grid-row">
+        <div *ngFor="let col of row; let colIndex = index"
+             class="grid-cell"
+             [ngClass]="{
+               'robot': robot.x === colIndex && robot.y === rowIndex,
+               'direction-north': robot.x === colIndex && robot.y === rowIndex && robot.direction === 'NORTH',
+               'direction-south': robot.x === colIndex && robot.y === rowIndex && robot.direction === 'SOUTH',
+               'direction-east': robot.x === colIndex && robot.y === rowIndex && robot.direction === 'EAST',
+               'direction-west': robot.x === colIndex && robot.y === rowIndex && robot.direction === 'WEST'
+             }">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

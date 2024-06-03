@@ -1,27 +1,58 @@
 # PilotUI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+## Overview
 
-## Development server
+This project is an Angular application for controlling a robot on a 5x5 grid. The application allows users to send predefined commands to move the robot and visualize its position and direction on the grid.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Predefined commands to control the robot
+- Visualization of the robot's position and direction on a 5x5 grid
+- Toast notifications for success and error messages
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
+
+- Node.js (version 12 or higher)
+- Angular CLI (version 15.1.6)
+
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd PilotUI
+
+
+2. Install the dependencies:
+   ```sh
+   npm install
+
+## Development Server
+Run the development server:
+
+```sh
+ng serve
+
+```
+Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To build the project, run:
 
-## Running unit tests
+```sh
+ng build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The build artifacts will be stored in the dist/ directory.
 
-## Running end-to-end tests
+### Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Open the application in your browser.
+2. The `textarea` will be pre-filled with predefined commands.
+3. Click the "Submit" button to send the commands to the backend and see the robot's movements on the grid.
 
-## Further help
+### Dependencies
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* Angular
+* SweetAlert2 for toast notifications
